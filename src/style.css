@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.inner {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.25rem;
+    overflow-x: hidden;
+    background-color: #e9efec;
+}
+
+menu {
+    display: flex;
+    list-style: none;
+    background-color: #16423c;
+    color: #67ff26;
+    padding: 1rem;
+}
+
+.normalMenuPadding {
+    margin-top: 0.5rem;
+    color: #e9efec;
+}
+
+.moveRight {
+    margin-left: auto;
+}
+
+menu li {
+    margin-left: 1rem;
+}
+
+li img {
+    width: 3rem;
+}
+
+button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    height: 2.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-style: normal;
+    background-color: #67ff26;
+    color: #16423c;
+    border-radius: 3rem;
+    font-size: 1.25rem;
+    transition: box-shadow 0.25s;
+    box-shadow: 0rem 0rem 1rem #16423c50;
+    border: none;
+}
+
+button:hover {
+    box-shadow: 0rem 0rem 1rem #67ff2675;
+}
+
+.landingPage {
+    display: flex;
+    height: 40rem;
+    width: 100%;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.centerMargin {
+    margin: auto;
+}
+
+.mainText {
+    display: flex;
+    margin-top: 4rem;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 22rem;
+}
+
+.mainText img {
+    width: 22rem;
+    border-radius: 1rem;
+}
+
+h1 {
+    color: #16423c;
+}
+
+h2 {
+    font-weight: 900;
+}
+
+.detailsPage {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+    width: auto;
+    text-align: justify;
+    background-color: #16423c;
+    color: #ffffff;
+    padding: 4rem;
+    border-radius: 2rem 2rem 0 0;
+}
+
+.detailsPage .downArrow {
+    width: 2rem;
+    animation: moveUpDown 2s ease-in-out infinite;
+}
+
+.detailsPage h1 {
+    color: #67ff26;
+}
+
+/* Login Page */
+
+.loginPage {
+    display: flex;
+    height: 10rem;
+    width: 100%;
+    flex-direction: column;
+}
+
+.loginForms {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    justify-content: center;
+    margin-top: 6rem;
+}
+
+label {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    color: #16423c;
+}
+
+input {
+    margin-top: 1rem;
+    height: 2rem;
+    border-radius: 3rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border: none;
+    outline: none;
+    transition: box-shadow 0.25s;
+}
+
+input:focus {
+    box-shadow: 0rem 0rem 1rem #16423c50;
+}
+
+/* Animations */
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(-2rem);
+    }
+    50% {
+        transform: translateY(-1rem);
+    }
+    100% {
+        transform: translateY(-2rem);
+    }
+}
