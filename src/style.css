@@ -53,14 +53,14 @@ button {
     font-style: normal;
     background-color: #67ff26;
     color: #16423c;
-    border-radius: 3rem;
+    border-radius: 1rem;
     font-size: 1.25rem;
     transition: box-shadow 0.25s;
     box-shadow: 0rem 0rem 1rem #16423c50;
     border: none;
 }
 
-button:hover {
+menu button:hover {
     box-shadow: 0rem 0rem 1rem #67ff2675;
 }
 
@@ -104,7 +104,7 @@ h2 {
     flex-direction: column;
     margin-top: 10rem;
     width: auto;
-    text-align: justify;
+    text-align: center;
     background-color: #16423c;
     color: #ffffff;
     padding: 4rem;
@@ -120,9 +120,62 @@ h2 {
     color: #67ff26;
 }
 
+/* Main Text Updates */
+.mainText h2 {
+    color: #16423c;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.mainText p {
+    color: #16423c;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    max-width: 28rem;
+}
+
+/* Details Page Updates */
+.detailsPage p {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    max-width: 30rem;
+    line-height: 1.5rem;
+}
+
+.detailsPage h2 {
+    color: #67ff26;
+    font-weight: 600;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+/* Login Button */
+.detailsPage button {
+    margin-top: 2rem;
+    padding: 0.75rem 2rem;
+    background-color: #67ff26;
+    color: #16423c;
+    border: none;
+    height: 3.5rem;
+    align-items: center;
+    border-radius: 1rem;
+    font-size: 1.25rem;
+    transition: background-color 0.25s, box-shadow 0.25s;
+}
+
+.detailsPage button:hover {
+    background-color: #57d91e;
+    box-shadow: 0 0 1rem #67ff2650;
+}
+
 /* Login Page */
 
-.loginPage {
+.loginPage,
+.signupPage {
     display: flex;
     height: 10rem;
     width: 100%;
@@ -146,7 +199,7 @@ label {
 input {
     margin-top: 1rem;
     height: 2rem;
-    border-radius: 3rem;
+    border-radius: 1rem;
     padding: 0.5rem;
     padding-left: 1rem;
     border: none;
@@ -164,13 +217,170 @@ input:focus {
 
 .loginForms button {
     box-shadow: none;
+    margin-bottom: 10rem;
+    margin-top: 2rem;
 }
 
 .loginForms button:hover {
     box-shadow: 0rem 0rem 1rem #16423c50;
 }
 
-/*  */
+.searchButton {
+    margin-left: 0.5rem;
+    height: 3rem;
+    margin-top: 1rem;
+}
+
+/* seller page */
+
+.sellerContent {
+    display: flex;
+    height: 40rem;
+    width: 20rem;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.sellerContent button {
+    background-color: #16423c;
+    color: #e9efec;
+    transition: all 0.2s;
+}
+
+.sellerContent button:focus {
+    background-color: #67ff26;
+    color: #16423c;
+}
+
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.searchField {
+    width: 20rem;
+}
+
+.activeStatus {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.listingCard {
+    display: flex;
+    flex-direction: column;
+    background-color: #16423c;
+    color: #e9efec;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    box-shadow: 0rem 0rem 1rem #16423c50;
+}
+
+.listingCard:last-child {
+    margin-bottom: 2rem;
+}
+
+.imageBackground {
+    height: 10rem;
+    background-image: url("../assets/potato.webp");
+    background-size: cover;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+}
+
+.leftInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.details img {
+    height: 2rem;
+    margin-left: auto;
+}
+
+.newListing {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    bottom: 2rem;
+    right: 2rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    font-size: 3rem;
+    background-color: #67ff26;
+    color: #16423c;
+    border-radius: 1rem;
+    box-shadow: 0rem 0rem 1rem #16423c50;
+}
+
+.newListing img {
+    height: 2rem;
+}
+
+/* Add Product Page */
+.addProductPage {
+    display: flex;
+    height: 10rem;
+    width: 100%;
+    flex-direction: column;
+}
+
+.addProductForm {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    justify-content: center;
+    margin-top: 6rem;
+}
+
+.addProductForm h1 {
+    text-align: center;
+    color: #16423c;
+}
+
+.addProductForm label {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    color: #16423c;
+}
+
+.addProductForm input {
+    margin-top: 1rem;
+    height: 2rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border: none;
+    outline: none;
+    transition: box-shadow 0.25s;
+}
+
+.addProductForm input:focus {
+    box-shadow: 0rem 0rem 1rem #16423c50;
+}
+
+.addProductForm button {
+    box-shadow: none;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.addProductForm button:hover {
+    box-shadow: 0rem 0rem 1rem #16423c50;
+}
 
 /* Animations */
 
