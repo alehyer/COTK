@@ -4,10 +4,41 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>J&B</title>
+        <link rel="icon" href="assets/logoWhite.png" type="image/png" />
         <link rel="stylesheet" href="src/style.css" />
+        <script type="importmap">
+            {
+                "imports": {
+                    "@google/generative-ai": "https://esm.run/@google/generative-ai"
+                }
+            }
+        </script>
+        <script type="module" src="src/app.js">
+            import { GoogleGenerativeAI } from "@google/generative-ai";
+
+            // Fetch your API_KEY
+            const API_KEY = "AIzaSyChWKDF-FrEDuA2VPjg8npL9EaSaJBVPSc";
+        </script>
     </head>
     <body>
-        <div class="inner" id="inner"></div>
+        <div class="inner" id="inner">
+            <menu>
+                <li><img src="assets/logoWhite.png" alt="Logo" /></li>
+                <li class="normalMenuPadding">Listing</li>
+                <li class="moveRight">
+                    <img src="assets/burger.png" alt="Menu" />
+                </li>
+            </menu>
+
+            <div class="analyticsPage">
+                <div class="aiBox">
+                    This product is:
+                    <h1 id="aiWord">sui</h1>
+                    <span>suiiiiiiiiiiiiiiiiii</span>
+                </div>
+
+                <img src="assets/potato.webp" alt="" />
+            </div>
+        </div>
     </body>
-    <script src="src/app.js"></script>
 </html>

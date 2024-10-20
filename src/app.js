@@ -1,3 +1,23 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+const generate = async () => {
+    try {
+        const genAI = new GoogleGenerativeAI(
+            "AIzaSyChWKDF-FrEDuA2VPjg8npL9EaSaJBVPSc"
+        );
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+        const prompt = promptInput.value;
+
+        const result = await model.generateContent(prompt);
+        console.log(result.response.text());
+        resultText.innerText = result.response.text();
+    } catch (error) {
+        console.error("Error:", error);
+        resultText.innerText = "Error occurred while generating.";
+    }
+};
+
 var data = {
     landingPage: `
         <div class="landingPage">
@@ -99,7 +119,7 @@ var data = {
             </div>
         </div>`,
 
-    addNewProduct: `<div class="addProductPage">
+    addNewProduct: `<div class="addProductHTML" id="addProductHTML">
                 <menu>
                     <li><img src="assets/logoWhite.png" alt="Logo" /></li>
                     <li class="normalMenuPadding">Add New Product</li>
@@ -158,16 +178,14 @@ let landingHTML;
 let loginHTML;
 let signupHTML;
 let sellerHTML;
-let newProductHTML;
+let addProductHTML;
 let users;
 let localData;
 
 try {
-    // Check if "localData" exists in localStorage
     const existingData = localStorage.getItem("localData");
 
     if (existingData) {
-        // If "localData" does not exist, store the data object
         localStorage.setItem("localData", JSON.stringify(data));
 
         localData = JSON.parse(localStorage.getItem("localData"));
@@ -176,7 +194,7 @@ try {
         loginHTML = localData.loginPage;
         signupHTML = localData.signupPage;
         sellerHTML = localData.sellerPage;
-        newProductHTML = localData.addNewProduct;
+        addProductHTML = localData.addNewProduct;
         users = localData.users;
 
         console.log("Data stored in localStorage successfully.");
@@ -188,7 +206,7 @@ try {
         loginHTML = localData.loginPage;
         signupHTML = localData.signupPage;
         sellerHTML = localData.sellerPage;
-        newProductHTML = localData.addNewProduct;
+        addProductHTML = localData.addNewProduct;
         users = localData.users;
 
         console.log("localData already exists in localStorage.");
@@ -199,8 +217,6 @@ try {
 }
 
 localData = JSON.parse(localStorage.getItem("localData"));
-
-// Writing to json
 
 const jsonWrite = () => {
     const submitButton = document.getElementById("submitButton");
@@ -216,7 +232,7 @@ const jsonWrite = () => {
 };
 
 function scrollToTop() {
-    const scrollDuration = 400; // Duration in ms
+    const scrollDuration = 400;
     const scrollStep = -window.scrollY / (scrollDuration / 15);
     const scrollInterval = setInterval(() => {
         if (window.scrollY !== 0) {
@@ -235,25 +251,25 @@ const loadPage = (elementId) => {
             break;
         case "newProduct":
             document.getElementById("sellerPage").style = "display: none;";
-            document.getElementById("inner").innerHTML += newProductHTML;
+
+            const productContainer = document.getElementById("inner");
+
+            if (!document.getElementById("addProductHTML")) {
+                productContainer.innerHTML += addProductHTML;
+            } else {
+                document.getElementById("addProductHTML").style =
+                    "display: flex; height: 10rem; width: 100%; flex-direction: column;";
+            }
         case "addProduct":
     }
 };
 
 function addNewProduct() {
-    // Get input values
     const productName = document.getElementById("productName").value;
     const price = parseFloat(document.getElementById("price").value);
     const quantity = parseFloat(document.getElementById("quantity").value);
     const location = document.getElementById("location").value;
 
-    // Validate input values
-    if (!productName || isNaN(price) || isNaN(quantity) || !location) {
-        alert("Please fill in all fields correctly.");
-        return;
-    }
-
-    // Create a new product object
     const newProduct = {
         productName: productName,
         price: price,
@@ -261,18 +277,15 @@ function addNewProduct() {
         location: location,
     };
 
-    // Add the new product to localData
     if (!localData.products) {
         localData.products = [];
     }
 
     localData.products.push(newProduct);
 
-    // Update localStorage with the new product data
     localStorage.setItem("localData", JSON.stringify(localData));
 
-    // Create HTML for the new product
-    const newProductHTML = `
+    const addProductHTML = `
         <div class="listingCard" onclick="">
             <div class="imageBackground"></div>
             <div class="details">
@@ -285,8 +298,13 @@ function addNewProduct() {
         </div>
     `;
 
-    // Append the new product HTML to a container
-    const productContainer = document.getElementById("productContainer"); // Make sure to have this element in your HTML
-    productContainer.insertAdjacentHTML("beforeend", productHTML);
-    document.getElementById("").style = "display: none;";
+    const productContainer = document.getElementById("productContainer");
+    productContainer.insertAdjacentHTML("beforeend", addProductHTML);
+    document.getElementById("sellerPage").style = "";
+    document.getElementById("addProductHTML").style = "display: none;";
+
+    document.getElementById("productName").value = "";
+    document.getElementById("price").value = "";
+    document.getElementById("quantity").value = "";
+    document.getElementById("location").value = "";
 }
