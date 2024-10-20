@@ -1,22 +1,22 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+// import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const generate = async () => {
-    try {
-        const genAI = new GoogleGenerativeAI(
-            "AIzaSyChWKDF-FrEDuA2VPjg8npL9EaSaJBVPSc"
-        );
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+// const generate = async () => {
+//     try {
+//         const genAI = new GoogleGenerativeAI(
+//             "AIzaSyChWKDF-FrEDuA2VPjg8npL9EaSaJBVPSc"
+//         );
+//         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-        const prompt = promptInput.value;
+//         const prompt = promptInput.value;
 
-        const result = await model.generateContent(prompt);
-        console.log(result.response.text());
-        resultText.innerText = result.response.text();
-    } catch (error) {
-        console.error("Error:", error);
-        resultText.innerText = "Error occurred while generating.";
-    }
-};
+//         const result = await model.generateContent(prompt);
+//         console.log(result.response.text());
+//         resultText.innerText = result.response.text();
+//     } catch (error) {
+//         console.error("Error:", error);
+//         resultText.innerText = "Error occurred while generating.";
+//     }
+// };
 
 var data = {
     landingPage: `
@@ -260,7 +260,6 @@ const loadPage = (elementId) => {
                 document.getElementById("addProductHTML").style =
                     "display: flex; height: 10rem; width: 100%; flex-direction: column;";
             }
-        case "addProduct":
     }
 };
 
