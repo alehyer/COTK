@@ -185,7 +185,7 @@ let localData;
 try {
     const existingData = localStorage.getItem("localData");
 
-    if (existingData) {
+    if (!existingData) {
         localStorage.setItem("localData", JSON.stringify(data));
 
         localData = JSON.parse(localStorage.getItem("localData"));
